@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
 
+
 # Create your models here.
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -28,5 +29,3 @@ class Item(models.Model):
 
     def __str_(self):
         return self.name
-
-# Create your models here.
