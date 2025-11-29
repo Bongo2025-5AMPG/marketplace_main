@@ -1,4 +1,4 @@
-#Markdown#
+## Markdown
 
 # Explicación de cada comando que vimos en clase
 
@@ -34,7 +34,7 @@
 
 - python manage.py createsuperuser: Sirve para crear un usuario administrador. Este usuario administrador puede entrar al panel de control de Django y manejar todo desde ahí.
 
-  # DIAGRAMA Y EXPLICACIÓN DE ARQUITECTURA MVT
+# DIAGRAMA Y EXPLICACIÓN DE ARQUITECTURA MVT
 
 
 Django utiliza una arquitectura " MVT (Model- View - Template) "el cual es una variación del tradicional "MVC (Model-View-Controller) "
@@ -57,6 +57,16 @@ El flujo de información en este diagrama se genera de la siguiente forma
 4- La vista decide que datos enviar a la plantilla y llama a la función de renderizado.
 5- La plantilla toma estos datos y los presenta en una página HTML dinámica, que es enviada como respuesta al usuario.
 
+# Explicación de los archivos Django
+
+## settings.py
+Puede definirse de forma coloquial como el centro de control del proyecto. Aquí se guarda toda la configuración general de nuestra página web, como por ejemplo: la base de datos que se va a usar, los idiomas, la zona horaria, etc....
+
+También se encuentran datos muy importantes como:
+- La clave secreta (SECRET_KEY) que usa Django para temas de seguridad.
+- Si el modo DEBUG está activado (esto sirve mientras desarrollamos, pero debe estar apagado cuando el sitio se publique).
+- Los archivos estáticos, como imágenes o archivos CSS y JavaScript.
+- Los middlewares, que son una especie de filtros que procesan las peticiones antes y después de que lleguen a las vistas.
 
 
 
