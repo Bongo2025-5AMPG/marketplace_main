@@ -1376,3 +1376,71 @@ urlpatterns = [
     </form>
 {% endblock%}
 ```
+---
+
+# Ejecución del proyecto actualizado:
+
+
+Nos metemos a la carpeta de Docs.
+
+![Docs](media/DOCS_1.jpg)
+
+Creamos una carpeta con tu nombre e ingresamos a ella.
+
+![Carpeta_1](media/CARPETA_1.jpg)
+
+Creamos la carpeta del proyecto e ingresamos a la carpeta.
+
+![Carpeta_2](media/CARPETA_2.jpg)
+
+Inserta el código python -m venv venv
+
+![venv_1](media/venv_1.jpg)
+
+Activamos el ambiente virtual
+
+![activar_1](media/activar_1.jpg)
+
+Instalamos Django y Pillow
+
+![Django_Pillow_1](media/Django_Pillow_1.jpg)
+
+Insertamos el código git clone e insertamos la url de nuestro proyecto previamente guardado en github.
+
+![git_clone](media/git_clone_!.jpg)
+
+Nos metemos a la carpeta marketplace _main
+
+![introducir_!](media/introducir_1.jpg)
+
+Insertamos el código manage.py
+
+![Manage.py](media/manage.py.jpg)
+
+Le damos en correr el servidor y pegamos el link en el buscador de google.
+
+![Google](media/Google_1.jpg)
+
+Y ya en la página nos registramos haciendo clic en la sección Register.
+
+![Register_!](media/Register_!.jpg)
+
+Nos llevará a la sección de registro donde insertamos los datos que nos pide para crear una cuenta en la página.
+
+![Register_1](media/Registre_1.jpg)
+
+Una vez registrados ya podemos agregar items desde nuestra página.
+
+![](media/Pagina_1.jpg)
+
+Nos llevará a una pantalla donde ingresamos todos los datos de nuestro producto para subirlo a la página.
+
+![](media/Pagina_2.jpg)
+
+Cuando completamos el registro nos llevará automáticamente a la página de detalles del producto registrado.
+
+![Detalles_1](media/Detalles_1.jpg)
+
+Y ya estará nuestro producto en la página principal.
+
+![Principal_1](media/principal_1.jpg)
