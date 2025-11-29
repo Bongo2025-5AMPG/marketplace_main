@@ -68,7 +68,7 @@ También se encuentran datos muy importantes como:
 - Los archivos estáticos, como imágenes o archivos CSS y JavaScript.
 - Los middlewares, que son una especie de filtros que procesan las peticiones antes y después de que lleguen a las vistas.
 
-### Codigo 
+### Código
 
 ```
 """
@@ -290,7 +290,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ```
-## Urls.py
+## urls.py
 
 Es el que controla las direcciones web (URLs) que el usuario puede visitar dentro del sitio. Podemos decir que asigna qué vista se ejecuta según la dirección que escriba el usuario en el navegador.
 Por ejemplo, si alguien entra a:
@@ -300,7 +300,7 @@ Y si entra a:
 www.marketplaceaguilarmedina.com/producto/5
 Ejecuta otra función que muestra los detalles de un producto en específico.
 
-### Codigo (marketplace_main)
+### Código (marketplace_main)
 
 ```
 """
@@ -337,7 +337,7 @@ urlpatterns = [
 
 ```
 
-### Codigo (Store)
+### Código (Store)
 
 ```
 from django.urls import path
@@ -351,5 +351,54 @@ urlpatterns=[
 
 ```
 
+## models.py
+
+El archivo models.py se usa para definir los modelos, que básicamente son las tablas de la base de datos. Cada clase que se crea dentro de este archivo representa una tabla, y cada atributo dentro de la clase representa una columna de esa tabla. Esto significa que aquí se guarda la estructura de los datos que se usarán en la página (por ejemplo: productos, usuarios, pedidos, etc....)
+
+### Código
+
+```
+from django.contrib.auth.models import User
+from django.db import models
+
+
+
+
+# Create your models here.
+class Category(models.Model):
+    name = models.CharField(max_length=255)
+
+
+
+
+    class Meta:
+        ordering = ('name', )
+        verbose_name_plural = 'Cagtegories'
+
+
+
+
+    def __str__(self):
+        return self.name
+
+
+
+
+class Item(models.Model):
+    category = models.ForeignKey(Category, related_name='items', on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    price = models.FloatField()
+    image = models.ImageField(upload_to='item_images', blank=True, null=True )
+    is_solid = models.BooleanField(default=False)
+    created_by = models.ForeignKey(User, related_name='items', on_delete=models.CASCADE)
+    create_at = models.DateTimeField(auto_now_add=True)
+
+
+
+
+    def __str_(self):
+        return self.name
+```
 
 
