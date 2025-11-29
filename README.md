@@ -290,6 +290,66 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 ```
+## Urls.py
+
+Es el que controla las direcciones web (URLs) que el usuario puede visitar dentro del sitio. Podemos decir que asigna qué vista se ejecuta según la dirección que escriba el usuario en el navegador.
+Por ejemplo, si alguien entra a:
+www.marketplaceaguilarmedina.com/
+Django sabe que debe ejecutar cierta función en el archivo views.py.
+Y si entra a:
+www.marketplaceaguilarmedina.com/producto/5
+Ejecuta otra función que muestra los detalles de un producto en específico.
+
+### Codigo (marketplace_main)
+
+```
+"""
+URL configuration for marketplace_main project.
+
+
+
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/5.2/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
+from store.views import home
+
+
+urlpatterns = [
+    path('',home,name='home'),
+    path('admin/', admin.site.urls),
+    path('store/',include('store.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+```
+
+### Codigo (Store)
+
+```
+from django.urls import path
+
+
+from.views import contact,detail
+urlpatterns=[
+    path('contact/', contact, name='contact' ),
+    path('detail/<int:pk>/', detail, name='detail'),
+]
+
+```
 
 
 
