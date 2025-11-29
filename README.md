@@ -784,7 +784,7 @@ Creamos nuevo objeto
 
 Quitamos el /admin/ y este es el resultado de la ejecución:
 
-![remove_admin](media/remove%admin.jpg)
+![remove_admin](media/admin.jpg)
 
 Y esto sería el resultado 
 
