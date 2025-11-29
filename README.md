@@ -1,5 +1,7 @@
 ## Markdown
 
+---
+
 # Explicación de cada comando que vimos en clase
 
 - cd Documents: Con este comando se entra a la carpeta Documents del usuario.
@@ -34,6 +36,8 @@
 
 - python manage.py createsuperuser: Sirve para crear un usuario administrador. Este usuario administrador puede entrar al panel de control de Django y manejar todo desde ahí.
 
+---
+
 # DIAGRAMA Y EXPLICACIÓN DE ARQUITECTURA MVT
 
 
@@ -56,6 +60,8 @@ El flujo de información en este diagrama se genera de la siguiente forma
 3- La vista según la lógica programada, puede consultar o actualizar el modelo (accediendo a la base de datos).
 4- La vista decide que datos enviar a la plantilla y llama a la función de renderizado.
 5- La plantilla toma estos datos y los presenta en una página HTML dinámica, que es enviada como respuesta al usuario.
+
+---
 
 # Explicación de los archivos Django
 
