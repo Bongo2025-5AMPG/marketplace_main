@@ -1,5 +1,6 @@
-##Explicación de cada comando que vimos en clase.## 
+#Markdown#
 
+#Explicación de cada comando que vimos en clase.#
 
 - cd Documents: Con este comando se entra a la carpeta Documents del usuario.
 
