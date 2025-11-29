@@ -34,3 +34,29 @@
 
 - python manage.py createsuperuser: Sirve para crear un usuario administrador. Este usuario administrador puede entrar al panel de control de Django y manejar todo desde ahí.
 
+  # DIAGRAMA Y EXPLICACIÓN DE ARQUITECTURA MVT
+
+
+Django utiliza una arquitectura " MVT (Model- View - Template) "el cual es una variación del tradicional "MVC (Model-View-Controller) "
+
+Este Modelo está estructurado para optimizar el flujo de trabajo en aplicaciones web modernas, el cual se conforma de las siguientes partes
+
+Modelo ( Model ): Gestiona los datos y su estructura; representa la capa de acceso a datos y lógica asociada ( Interactúa con la base de datos ).
+
+Vista ( View ): Actúa como la capa lógica, gestionando las solicitudes web, procesando datos y decidiendo cuales mostrar y cómo responder ( es la lógica de negocio ).
+
+Plantilla ( Template ): Es la capa de presentación, encargada de mostrar visualmente los datos al usuario (se usa con rutas urls y es la interfaz del usuario ).
+
+El flujo de información en este diagrama se genera de la siguiente forma
+
+![Imagen](marketplace_main/media/item_images/Flujo de información en el patrón MVT.png)
+
+1- El usuario realiza una petición HTML ( un caso podría ser accediendo a una URL).
+2- El sistema de URLs de Django ("dispatcher") redirige la petición a la vista correspondiente.
+3- La vista según la lógica programada, puede consultar o actualizar el modelo (accediendo a la base de datos).
+4- La vista decide que datos enviar a la plantilla y llama a la función de renderizado.
+5- La plantilla toma estos datos y los presenta en una página HTML dinámica, que es enviada como respuesta al usuario.
+
+
+
+
