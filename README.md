@@ -723,54 +723,73 @@ Nos metemos a la carpeta de Docs
 
 Creamos una carpeta con tu nombre
 
+![carpeta](media/carpeta.jpg)
+
 Nos metemos en la carpeta con tu nombre
+
+![ingresar_carpeta](media/ingresar_carpeta.jpg)
 
 Creamos la carpeta del proyecto 
 
+![proyecto](media/proyecto.jpg)
+
 Nos metemos en la carpeta
+
+![ingresar_proyecto](media/ingresar_proyecto.jpg)
 
 Inserta el código python -m venv venv
 
+![venv](media/venv.jpg)
+
 Activamos el ambiente virtual
+
+![activar](media/activar.jpg)
 
 Instalamos Django y Pillow
 
+![django_pillow](media/django_pillow.jpg)
+
 Verificamos con pip list
+
+![pip_list](media/pip_list.jpg)
 
 Nos metemos en la carpeta de marketplace_main donde esta todo el codigo
 
-
+![marketplace_main](media/marketplace_main.jpg)
 
 Le damos en correr el servidor
 
+![servidor](media/servidor.jpg)
 
 Copia este link
 
+![link](media/link.jpg)
+
 Lo pegas en google chrome o en tu navegador de preferencia
+
+![navegador](media/navegador.jpg)
 
 Nos dará esta interfaz
 
+![interfaz](media/interfaz.jpg)
+
 Aquí es la sección de crear categorías y items
 
-
-
-
-
+![seeciones](media/secciones.jpg)
 
 Creamos nuevo objeto
 
-
-
-
-
-
-
-
+![item_1](media/new_item1.jpg)
+![item_2](media/new_item2.jpg)
 
 Quitamos el /admin/ y este es el resultado de la ejecución:
 
+![remove_admin](media/remove%admin.jpg)
+
 Y esto sería el resultado 
+
+![resultado](media/resultado.jpg)
 
 Tenemos una sección llamada “contact” donde le das click y te sale otra interfaz para contactarte pero aun no es funcional
 
-
+![contact](media/contact.jpg)
