@@ -712,3 +712,65 @@ La carpeta templates/store/ es donde se guardan los archivos HTML que se mostrar
     </div>
 </nav>
 ```
+
+---
+
+# Ejecución del proyecto:
+
+Nos metemos a la carpeta de Docs
+
+![docs](media/docs.jpg)
+
+Creamos una carpeta con tu nombre
+
+Nos metemos en la carpeta con tu nombre
+
+Creamos la carpeta del proyecto 
+
+Nos metemos en la carpeta
+
+Inserta el código python -m venv venv
+
+Activamos el ambiente virtual
+
+Instalamos Django y Pillow
+
+Verificamos con pip list
+
+Nos metemos en la carpeta de marketplace_main donde esta todo el codigo
+
+
+
+Le damos en correr el servidor
+
+
+Copia este link
+
+Lo pegas en google chrome o en tu navegador de preferencia
+
+Nos dará esta interfaz
+
+Aquí es la sección de crear categorías y items
+
+
+
+
+
+
+Creamos nuevo objeto
+
+
+
+
+
+
+
+
+
+Quitamos el /admin/ y este es el resultado de la ejecución:
+
+Y esto sería el resultado 
+
+Tenemos una sección llamada “contact” donde le das click y te sale otra interfaz para contactarte pero aun no es funcional
+
+
