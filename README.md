@@ -407,4 +407,308 @@ class Item(models.Model):
         return self.name
 ```
 
+## views.py
 
+Este archivo contiene las vistas, que son las funciones o clases que reciben las peticiones de los usuarios y devuelven una respuesta.
+
+Una vista puede hacer estas cosas:
+- Mostrar una página HTML.
+- Enviar datos al navegador.
+- Guardar información en la base de datos.
+- O incluso devolver datos en formato JSON (como en una API).
+Por así decirlo, es el puente entre los modelos y las plantillas.
+Usa la información del modelo, la prepara y la manda al archivo HTML para que el usuario la vea.
+
+
+### Código
+
+```
+from django.shortcuts import render
+from.models import Item, Category
+from django.shortcuts import get_object_or_404
+
+
+# Create your views here.
+def home(request):
+    Items = Item.objects.filter(is_solid=False)
+    Categories = Category.objects.all()
+    context={
+        'items': Items,
+        'categories': Categories
+    }
+    return render(request,'store/home.html', context)
+
+
+def contact(request):
+    context ={
+        'msg':'¿Quieres otros productos? Contactame'
+    }
+    return render(request,'store/contact.html',context)
+
+
+def detail(request, pk):
+    item=get_object_or_404(Item, pk=pk)
+    related_items=Item.objects.filter(category=item.category, is_solid=False).exclude(pk=pk)[0:3]
+
+
+    context={
+        'Item':item,
+        'related_items': related_items
+    }
+    return render(request,'store/item.html',context)
+
+```
+
+## templates/store/
+
+La carpeta templates/store/ es donde se guardan los archivos HTML que se mostrarán en el navegador. Cada archivo dentro de esta carpeta es una plantilla, que puede tener código HTML normal, pero también puede incluir etiquetas de Django como {{ }} o {% %} para mostrar datos dinámicos. Por ejemplo:si la vista envía una lista de productos, la plantilla puede mostrarlos con un bucle. Dentro de está carpeta tenemos los archivos: base.html,home.html,navegation.html,item.html y contact.html
+
+### Códigos:
+
+#### base.html
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <title>{% block title %} {% endblock title %}Market Place</title>
+</head>
+<body>
+    {% include 'store/navigation.html' %}
+    <section class="container">
+        {% block content %}
+
+
+
+
+
+
+
+
+        {% endblock %}
+    </section>
+
+
+
+
+
+
+
+
+    <footer class="py-5 text-center text-body-secondary bg-body-tertiary">
+        <p>Copyright (c) 2025 - Marketplace by Deniss Dominguez</p>
+    </footer>
+</body>
+</html>
+
+```
+
+#### contact.html
+
+```
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Contacto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <style>
+        .contact-section {
+            padding: 60px 0;
+        }
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            background-color: #ffffff; /* Fondo blanco para destacar */
+        }
+    </style>
+</head>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Marketplace</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="contact.html">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-form">
+               
+                <h2 class="mb-4 text-center text-primary">¡Contáctanos!</h2>
+                <p class="text-center mb-5 text-muted">Estamos encantados de escucharte. Rellena el formulario o utiliza la información de contacto.</p>
+
+
+                <div class="row">
+                    <div class="col-lg-8">
+                        <form action="#" method="POST"> <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="email" class="form-label">Correo Electrónico</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                            </div>
+                           
+                            <div class="mb-3">
+                                <label for="asunto" class="form-label">Asunto</label>
+                                <input type="text" class="form-control" id="asunto" required>
+                            </div>
+
+
+                            <div class="mb-4">
+                                <label for="mensaje" class="form-label">Tu Mensaje</label>
+                                <textarea class="form-control" id="mensaje" rows="5" required></textarea>
+                            </div>
+
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary btn-lg">Enviar Mensaje</button>
+                            </div>
+                        </form>
+                    </div>
+
+
+                    <div class="col-lg-4 mt-4 mt-lg-0 p-lg-4 bg-light border-start border-1">
+                        <h4 class="text-secondary mb-3">Otras Formas de Contacto</h4>
+                       
+                        <div class="mb-3">
+                            <p class="fw-bold mb-1">Teléfono:</p>
+                            <p class="text-muted">+34 123 456 789</p>
+                        </div>
+                       
+                        <div class="mb-3">
+                            <p class="fw-bold mb-1">Email:</p>
+                            <p class="text-muted">blueinventory@gmail.com</p>
+                        </div>
+
+
+                        <div class="mb-3">
+                            <p class="fw-bold mb-1">Instagram:</p>
+                            <p class="text-muted">@blueinventory</p>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="bg-dark text-white text-center py-3 mt-5">
+        <div class="container">
+            <p class="mb-0">&copy; Copyright (c) 2025 - Marketplace by Deniss Dominguez</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
+```
+
+#### home.html
+
+```
+{% extends 'store/base.html' %}
+
+
+
+
+
+
+
+
+{% block title %}Home |{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+  <div class="mt-2 mb-4 px-4 py-2">
+    <h1 class="text-center mb-4">Nuevos productos</h1>
+    <div class="container text-center">
+        <div class="row justify-content-center">
+            {% for item in items %}
+               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 col-xl-3">
+                <div class="card" style="width: 18rem">
+                    <img src="{{item.image.url}}" alt="{{item.name}}" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.name}} - {{item.price}}</h5>
+                        <p class="card-text">{{item.description}}</p>
+                    </div>
+                </div>
+               </div>
+            {% endfor %}
+        </div>
+    </div>
+  </div>
+{% endblock %}
+```
+
+#### item.html
+
+```
+{% extends 'store/base.html' %}
+{% block title %}{{item.name}}| {% endblock %}
+
+
+{% block content %}
+<h1>Item detail Page</h1>
+{% endblock %}
+```
+
+#### navigation.html
+
+```
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a href="{% url 'home' %}" class="navbar-brand">Marketplace</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-control="navBarNav" aria-expanded="false" aria-label="Toggle Navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a href="" class="nav-link active">
+                        Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'contact' %}" class="nav-link active">
+                        Contact
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="" class="nav-link active">
+                        Login
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+```
