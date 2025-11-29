@@ -49,7 +49,7 @@ Plantilla ( Template ): Es la capa de presentación, encargada de mostrar visual
 
 El flujo de información en este diagrama se genera de la siguiente forma
 
-![Imagen](marketplace_main/media/item_images/Flujo%de%información%en%el%patrón%MVT.png)
+![Imagen](marketplace_main/media/MVT.png)
 
 1- El usuario realiza una petición HTML ( un caso podría ser accediendo a una URL).
 2- El sistema de URLs de Django ("dispatcher") redirige la petición a la vista correspondiente.
