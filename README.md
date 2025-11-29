@@ -793,3 +793,33 @@ Y esto sería el resultado
 Tenemos una sección llamada “contact” donde le das click y te sale otra interfaz para contactarte pero aun no es funcional
 
 ![contact](media/contact.jpg)
+
+---
+
+# Actualizaciones del proyecto marketplace _main
+# (descripción)
+
+## - Forms.py
+
+En este archivo se definen los formularios que utilizará la aplicación para recibir datos del usuario. Se encarga de validar que los datos ingresados sean correctos antes de enviarlos a la vista.
+### LoginForm:
+- Sirve para que el usuario inicie sesión.
+- Contiene campos como:
+- Usuario o correo
+- Contraseña
+
+### SignupForm:
+Se usa para el registro de nuevos usuarios. Valida que las contraseñas coincidan y que el usuario no esté repetido.
+Incluye campos como:
+- Nombre de usuario
+- Correo
+- Contraseña
+- Confirmación de contraseña
+
+### NewItemForm:
+Permite agregar un nuevo producto o artículo al marketplace. Ayuda a que el usuario ingrese información correctamente antes de guardarla en la base de datos.
+Incluye datos como:
+- Nombre del producto
+- Descripción
+- Precio
+- Imagen
