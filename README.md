@@ -823,3 +823,33 @@ Incluye datos como:
 - Descripción
 - Precio
 - Imagen
+
+## - Views.py
+
+### login():
+Maneja el inicio de sesión:
+- Recibe los datos del formulario
+- Verifica si el usuario existe
+- Inicia la sesión si los datos son correctos
+- Si no, muestra error
+
+### logout_user():
+Cierra la sesión del usuario:
+- Elimina la sesión activa
+- Redirige al usuario a otra página (normalmente inicio o login)
+
+### detail():
+Muestra el detalle de un producto:
+- Obtiene la información del artículo desde la base de datos
+- Envía esos datos a la plantilla para mostrarlos al usuario
+
+### add_item():
+Permite agregar un nuevo artículo:
+- Muestra el formulario NewItemForm
+- Valida la información
+- Guarda el artículo en la base de datos
+- Redirige al usuario después de guardar
+
+### - @login_required
+Este decorador sirve para proteger las vistas. Indica que solo los usuarios que hayan iniciado sesión pueden acceder a esa función.
+
